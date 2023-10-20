@@ -45,6 +45,7 @@ void execute_opcode(void)
             {"mul", mul_op},
             {"mod", mod_op},
             {"pchar", pchar_op},
+            {"pstr", pstr_op},
             {"#", nop_op},
             {"", nop_op},
             {NULL, NULL}
