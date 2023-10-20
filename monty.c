@@ -25,7 +25,7 @@ int main(int argc, char **argv) {
     while (_getline(&(global_data.line), &len, global_data.file) != (size_t)-1) {
         global_data.line_number++;
         global_data.opcode = strtok(global_data.line, " \t\n\r");
-        if (global_data.opcode == NULL || global_data.opcode[0] == '$')
+        if (global_data.opcode == NULL || global_data.opcode[0] == '#')
             continue;
 
         global_data.argument = strtok(NULL, " \t\n\r");
