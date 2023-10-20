@@ -240,3 +240,39 @@ void pstr_op(stack_t **stack, unsigned int line_number)
     fprintf(stdout, "\n");
     fflush(NULL);
 }
+
+void rotr_op(stack_t **stack, unsigned int line_number)
+{
+    stack_t *current, *tmp;
+
+    (void) line_number;
+    if (*stack == NULL || (*stack)->next == NULL)
+        return;
+    current = *stack;
+    while (current->next)
+        current = current->next;
+    tmp = current->prev;
+    tmp->next = NULL;
+    current->prev = NULL;
+    current->next = *stack;
+    (*stack)->prev = current;
+    *stack = current;
+}
+
+void rotl_op(stack_t **stack, unsigned int line_number)
+{
+    stack_t *current, *tmp;
+
+    (void) line_number;
+    if (*stack == NULL || (*stack)->next == NULL)
+        return;
+    current = *stack;
+    tmp = current->next;
+    while (current->next)
+        current = current->next;
+    current->next = *stack;
+    (*stack)->prev = current;
+    (*stack)->next = NULL;
+    *stack = tmp;
+    tmp->prev = NULL;
+}
