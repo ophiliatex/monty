@@ -104,3 +104,21 @@ void swap_op(stack_t **stack, unsigned int line_number)
     (*stack)->next = current;
     (*stack)->prev = NULL;
 }
+
+
+void add_op(stack_t **stack, unsigned int line_number)
+{
+    stack_t *current;
+
+    (void) line_number;
+    if (*stack == NULL || (*stack)->next == NULL)
+    {
+        fprintf(stderr, "L%d: can't add, stack too short\n", global_data.line_number);
+        exit(EXIT_FAILURE);
+    }
+    current = *stack;
+    *stack = (*stack)->next;
+    (*stack)->n += current->n;
+    (*stack)->prev = NULL;
+    free(current);
+}
