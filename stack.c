@@ -56,3 +56,29 @@ void pint_op(stack_t **stack, unsigned int line_number)
     fprintf(stdout, "%d\n", (*stack)->n);
     fflush(NULL);
 }
+
+/**
+* The opcode pop removes the top element of the stack.
+
+Usage: pop
+If the stack is empty, print the error message
+ L<line_number>: can't pop an empty stack, followed by a new line,
+ and exit with the status EXIT_FAILURE
+*/
+
+void pop_op(stack_t **stack, unsigned int line_number)
+{
+    stack_t *current;
+
+    (void) line_number;
+    if (*stack == NULL)
+    {
+        fprintf(stderr, "L%d: can't pop an empty stack\n", global_data.line_number);
+        exit(EXIT_FAILURE);
+    }
+    current = *stack;
+    *stack = (*stack)->next;
+    if (*stack)
+        (*stack)->prev = NULL;
+    free(current);
+}
