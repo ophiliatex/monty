@@ -207,3 +207,20 @@ void mod_op(stack_t **stack, unsigned int line_number)
     free(current);
 }
 
+void pchar_op(stack_t **stack, unsigned int line_number)
+{
+    (void) line_number;
+    if (*stack == NULL)
+    {
+        fprintf(stderr, "L%d: can't pchar, stack empty\n", global_data.line_number);
+        exit(EXIT_FAILURE);
+    }
+    if ((*stack)->n < 0 || (*stack)->n > 127)
+    {
+        fprintf(stderr, "L%d: can't pchar, value out of range\n", global_data.line_number);
+        exit(EXIT_FAILURE);
+    }
+    fprintf(stdout, "%c\n", (*stack)->n);
+    fflush(NULL);
+}
+
