@@ -37,6 +37,7 @@ void execute_opcode(void)
             {"pall", pall_op},
             {"pint", pint_op},
             {"pop", pop_op},
+            {"swap", swap_op},
             {NULL, NULL}
     };
 

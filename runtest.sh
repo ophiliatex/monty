@@ -4,7 +4,7 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 # Define two variables task and count
-task=2
+task=3
 count=-1
 
 echo "Running tests for task $1"
