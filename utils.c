@@ -39,6 +39,7 @@ void execute_opcode(void)
             {"pop", pop_op},
             {"swap", swap_op},
             {"add", add_op},
+            {"nop", nop_op},
             {NULL, NULL}
     };
 

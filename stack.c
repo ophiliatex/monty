@@ -122,3 +122,10 @@ void add_op(stack_t **stack, unsigned int line_number)
     (*stack)->prev = NULL;
     free(current);
 }
+
+void nop_op(stack_t **stack, unsigned int line_number)
+{
+    (void) stack;
+    (void) line_number;
+}
+
