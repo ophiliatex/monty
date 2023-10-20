@@ -40,6 +40,12 @@ void execute_opcode(void)
             {"swap", swap_op},
             {"add", add_op},
             {"nop", nop_op},
+            {"sub", sub_op},
+            {"div", div_op},
+            {"mul", mul_op},
+            {"mod", mod_op},
+            {"#", nop_op},
+            {"", nop_op},
             {NULL, NULL}
     };
 
